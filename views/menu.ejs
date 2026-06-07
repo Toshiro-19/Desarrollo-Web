@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Principal</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>🏠 Mi Aplicación</h1>
+    <div class="navbar-links">
+      <a href="/usuarios">Ver Usuarios</a>
+      <a href="/logout">Cerrar Sesión</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card" style="text-align: center; padding: 3rem 2rem;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">¡Bienvenido! 👋</h1>
+      <p style="color: #666; font-size: 1.1rem; margin-bottom: 2.5rem;">Sesión iniciada correctamente.</p>
+      <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+        <div class="card" style="flex: 1; min-width: 200px; max-width: 250px; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">📋</div>
+          <h3 style="margin-bottom: 0.5rem;">Usuarios</h3>
+          <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Ver, crear, editar y eliminar</p>
+          <a href="/usuarios" class="btn btn-primary">Ver Usuarios</a>
+        </div>
+      </div>
+      <div style="margin-top: 2.5rem;">
+        <a href="/logout" class="btn btn-secondary">🚪 Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
