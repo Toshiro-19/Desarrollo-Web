@@ -1,5 +1,5 @@
-// Aquí van todas las funciones que manejan cada página
-// Cada función recibe la petición, habla con el backend y muestra la vista
+// Aqui van todas las funciones que manejan cada pagina
+// Cada funcion recibe la peticion, habla con el backend y muestra la vista
 
 import fetch from "node-fetch";
 
@@ -7,7 +7,7 @@ import fetch from "node-fetch";
 const API_URL = "http://localhost:3000/api";
 
 // Muestra el formulario de login
-// Si ya hay sesión activa, manda directo al menú
+// Si ya hay sesion activa, manda directo al menu
 export const getLogin = (req, res) => {
   if (req.session.token) {
     return res.redirect("/menu");
@@ -15,38 +15,38 @@ export const getLogin = (req, res) => {
   res.render("login", { error: null });
 };
 
-// Recibe el usuario y contraseña del formulario
-// Si el backend dice que está bien, guarda el token y va al menú
+// Recibe el usuario y contrasena del formulario
+// Si el backend dice que esta bien, guarda el token y va al menu
 export const postLogin = async (req, res) => {
-  const { usuario, contraseña } = req.body;
+  const { usuario, contrasena } = req.body;
   try {
     const response = await fetch(`${API_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ usuario, contraseña }),
+      body: JSON.stringify({ usuario, contrasena }),
     });
     const data = await response.json();
     if (!response.ok) {
-      return res.render("login", { error: data.message || "Credenciales inválidas" });
+      return res.render("login", { error: data.message || "Credenciales invalidas" });
     }
-    // Guardamos el token en la sesión del servidor, no en el navegador
+    // Guardamos el token en la sesion del servidor, no en el navegador
     req.session.token = data.token;
     res.redirect("/menu");
   } catch (error) {
     console.error("Error en login:", error);
-    res.render("login", { error: "Error de conexión con el servidor" });
+    res.render("login", { error: "Error de conexion con el servidor" });
   }
 };
 
-// Muestra la página de bienvenida
+// Muestra la pagina de bienvenida
 export const getMenu = (req, res) => {
   res.render("menu");
 };
 
-// Cierra la sesión y manda al login
+// Cierra la sesion y manda al login
 export const logout = (req, res) => {
   req.session.destroy((err) => {
-    if (err) console.error("Error al cerrar sesión:", err);
+    if (err) console.error("Error al cerrar sesion:", err);
     res.redirect("/");
   });
 };
@@ -62,12 +62,12 @@ export const getUsuarios = async (req, res) => {
     res.render("listar", { usuarios });
   } catch (error) {
     console.error("Error:", error);
-    // Si algo falla mostramos la tabla vacía
+    // Si algo falla mostramos la tabla vacia
     res.render("listar", { usuarios: [] });
   }
 };
 
-// Muestra el formulario vacío para crear un usuario
+// Muestra el formulario vacio para crear un usuario
 export const getNuevoUsuario = (req, res) => {
   res.render("crear", { error: null });
 };
@@ -88,11 +88,11 @@ export const postCrearUsuario = async (req, res) => {
       const data = await response.json();
       return res.render("crear", { error: data.message || "Error al crear usuario" });
     }
-    // Si todo salió bien, volvemos a la lista
+    // Si todo salio bien, volvemos a la lista
     res.redirect("/usuarios");
   } catch (error) {
     console.error("Error:", error);
-    res.render("crear", { error: "Error de conexión con el servidor" });
+    res.render("crear", { error: "Error de conexion con el servidor" });
   }
 };
 
@@ -134,7 +134,7 @@ export const postEditarUsuario = async (req, res) => {
     res.redirect("/usuarios");
   } catch (error) {
     console.error("Error:", error);
-    res.render("editar", { usuario: { id, nombre, email }, error: "Error de conexión" });
+    res.render("editar", { usuario: { id, nombre, email }, error: "Error de conexion" });
   }
 };
 

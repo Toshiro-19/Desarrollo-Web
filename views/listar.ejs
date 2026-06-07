@@ -8,17 +8,17 @@
 </head>
 <body>
   <nav class="navbar">
-    <h1>👥 Mi Aplicación</h1>
+    <h1>Mi Aplicacion</h1>
     <div class="navbar-links">
-      <a href="/menu">Menú</a>
-      <a href="/logout">Cerrar Sesión</a>
+      <a href="/menu">Menu</a>
+      <a href="/logout">Cerrar Sesion</a>
     </div>
   </nav>
   <div class="container">
     <div class="card">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
         <h1>Lista de Usuarios</h1>
-        <a href="/usuarios/nuevo" class="btn btn-primary">+ Nuevo Usuario</a>
+        <a href="/usuarios/nuevo" class="btn btn-primary">Nuevo Usuario</a>
       </div>
       <table>
         <thead>
@@ -37,10 +37,10 @@
               <td><%= usuario.email %></td>
               <td>
                 <div class="actions">
-                  <a href="/usuarios/editar/<%= usuario.id %>" class="btn btn-primary">✏️ Editar</a>
+                  <a href="/usuarios/editar/<%= usuario.id %>" class="btn btn-primary">Editar</a>
                   <form action="/usuarios/eliminar" method="POST" style="display: inline;">
                     <input type="hidden" name="id" value="<%= usuario.id %>">
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro que quieres eliminar este usuario?')">🗑️ Eliminar</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Seguro que quieres eliminar este usuario?')">Eliminar</button>
                   </form>
                 </div>
               </td>
@@ -50,7 +50,7 @@
       </table>
       <% if (usuarios.length === 0) { %>
         <p style="text-align: center; color: #666; margin-top: 2rem;">
-          📭 No hay usuarios. <a href="/usuarios/nuevo">Crear el primero</a>
+          No hay usuarios registrados. <a href="/usuarios/nuevo">Crear el primero</a>
         </p>
       <% } %>
     </div>

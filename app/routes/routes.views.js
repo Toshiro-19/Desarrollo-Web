@@ -1,5 +1,5 @@
-// Aquí definimos todas las rutas de la aplicación
-// Cada ruta apunta a su función en el controlador
+// Aqui definimos todas las rutas de la aplicacion
+// Cada ruta apunta a su funcion en el controlador
 
 import { Router } from "express";
 import {
@@ -18,12 +18,12 @@ import { verificarSesion } from "../middleware/auth.middleware.js";
 
 const router = Router();
 
-// Rutas públicas (no necesitan sesión)
+// Rutas publicas (no necesitan sesion)
 router.get("/", getLogin);
 router.post("/login", postLogin);
 router.get("/logout", logout);
 
-// Rutas protegidas (verificarSesion revisa que haya sesión antes de entrar)
+// Rutas protegidas (verificarSesion revisa que haya sesion antes de entrar)
 router.get("/menu", verificarSesion, getMenu);
 
 // CRUD de usuarios
